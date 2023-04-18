@@ -1,0 +1,21 @@
+POST http://localhost:3000/api/usuarios/register
+Content-Type: application/json
+
+{
+    "username": "Inés",
+    "email": "ines@codehouse.academy",
+    "password": "Admin123"
+}
+
+###
+POST http://localhost:3000/api/usuarios/login
+Content-Type: application/json
+
+{
+    "email": "ines@codehouse.academy",
+    "password": "Admin123"
+}
+
+###
+GET http://localhost:3000/api/usuarios/perfil
+Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjIzLCJ1c2VyUm9sZSI6ImFkbWluIiwiZXhwaXJlc0F0IjoxNjY3NTU2NjA1LCJpYXQiOjE2Njc1NDk0MDV9.M0Y312xbvrMPV6kTt7IYz8jfhchK_9Rgs0Cvoyz6J00
