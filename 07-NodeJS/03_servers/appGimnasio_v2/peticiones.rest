@@ -1,0 +1,11 @@
+###
+GET http://localhost:3000/api/clientes
+
+###
+POST  http://localhost:3000/api/clientes
+
+###
+PUT http://localhost:3000/api/clientes/45
+
+###
+DELETE http://localhost:3000/api/clientes/45
