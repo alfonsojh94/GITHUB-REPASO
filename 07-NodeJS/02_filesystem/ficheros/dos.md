@@ -1,5 +1,0 @@
----
-
-Contenido del fichero
-
-### Título
