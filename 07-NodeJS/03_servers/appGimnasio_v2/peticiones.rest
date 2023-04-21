@@ -3,6 +3,19 @@ GET http://localhost:3000/api/clientes
 
 ###
 POST  http://localhost:3000/api/clientes
+Content-Type: application/json
+
+{
+    "nombre": "Alfonso",
+    "apellidos": "Jiménez Hidalgo",
+    "direccion": "Avenida Andalucia Nº164 1D",
+    "email": "aslasdasdasdaassadsdddad@gmail.com",
+    "edad": 29,
+    "genero": "M",
+    "cuota": 39.90,
+    "fecha_nacimiento": "1994-03-16", 
+    "dni": "77139446E"
+}
 
 ###
 PUT http://localhost:3000/api/clientes/45

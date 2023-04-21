@@ -1,15 +1,77 @@
+const { getAll, getAllProfesores, create, getById } = require('../../models/cliente.model');
 const router = require('express').Router();
 
-router.get('/', (req, res) => {
-    db.query('select * from clientes', (err, result) => {
-        res.json(result)
-    })
+
+router.get('/', async (req, res) => {
+    const result = await getAll();
+    res.json(result);
+    
+});
+
+
+// GET CLIENTE Definiendo PROMESA como ------> .Then() .catch()
+// router.get('/', (req, res) => {
+//     getAll()
+//         .then((result) => {
+//             res.json(result)
+//         })
+//         .catch((err) => {
+//             res.json(err)
+//         })
+    
+// })
+
+// GET PROFESORES Definiendo Promesa como ----------> .then() .catch()
+// router.get('/', (req, res) => {
+//     getAllProfesores()
+//         .then((result) => {
+//             res.json(result)
+//         })
+//         .catch((err) => {
+//             res.json(err)
+//         })
+    
+// })
+
+
+// // GET PROFESORES Definiendo Promesa como ----ASYNC-AWAIT ------> .try .catch()
+// router.get('/', async (req, res) => {
+//     try{
+//         const result = await getAllProfesores()
+//         res.json(result)
+//     } catch(err){
+//         res.json(err)
+//     }
+// })
+
+
+router.post('/',(req, res) => {
+    create(req.body)
+        .then(({ insertId }) => {
+            getById(insertId)
+                .then((result) => {
+                    res.json(result)
+                })
+                .catch((err) => {
+                    res.json(err)
+                })
+            
+        })
+        .catch()
+    
 
 });
 
-router.post('/', (req, res) => {
-    res.send('Crea un nuevo cliente en la BD')
-});
+// router.post('/', (req,res) => {
+//     create(req.body)
+//         .then((result) => {
+//             res.json(result)
+//         })
+//         .catch((err) => {
+//             res.json(err)
+//         })
+    
+// })
 
 router.put('/:clienteId', (req, res) => {
     res.send('Actualiza un cliente')
