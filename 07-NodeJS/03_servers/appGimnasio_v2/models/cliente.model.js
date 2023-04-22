@@ -46,6 +46,8 @@ const getById = (clienteId) => {
     });
 }
 
+//Prueba paras subir a GitHub y comprobar que tambíen es subida la carpeta /BIN
+
 module.exports = {
     getAll, getAllProfesores, create, getById
 }
