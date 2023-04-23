@@ -46,8 +46,42 @@ const getById = (clienteId) => {
     });
 }
 
-//Prueba paras subir a GitHub y comprobar que tambíen es subida la carpeta /BIN
+const getByEdad = (edad) => {
+    return new Promise((resolve, reject) => {
+        db.query('select * from clientes where edad > ?', [edad], (err, result) => {
+            if (err) reject(err)
+            resolve(result)
+        }
+        )
+    });
+} 
+
+const update = (clienteId, {nombre, apellidos, direccion, email, edad, genero, cuota, fecha_nacimiento,dni}) => {
+    return new Promise((resolve, reject) => {
+        db.query(
+            'update clientes set nombre = ?, apellidos = ?, direccion = ?, email = ?, edad = ?, genero = ?, cuota = ?, fecha_nacimiento = ?, dni = ? where id = ?', [nombre, apellidos, direccion, email, edad, genero, cuota, fecha_nacimiento, dni, clienteId],
+            (err, result) => {
+                if (err) reject(err)
+                resolve(result)
+            }
+        );
+    });
+}
+
+const deleteById = (clienteId) => {
+    return new Promise((resolve, reject) => {
+        db.query(
+            'delete from clientes where id = ?'
+            , [clienteId],
+            (err, result) => {
+                if (err) reject(err)
+                resolve(result)
+            }
+        );
+    });
+
+}
 
 module.exports = {
-    getAll, getAllProfesores, create, getById
+    getAll, getAllProfesores, create, getById, getByEdad, update, deleteById
 }

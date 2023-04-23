@@ -2,23 +2,39 @@
 GET http://localhost:3000/api/clientes
 
 ###
+GET http://localhost:3000/api/clientes/mayores/60
+
+###
 POST  http://localhost:3000/api/clientes
 Content-Type: application/json
 
 {
-    "nombre": "Alfonso",
-    "apellidos": "Jiménez Hidalgo",
+    "nombre": "Macarena",
+    "apellidos": "Martin de Castro",
     "direccion": "Avenida Andalucia Nº164 1D",
-    "email": "aslasdasdasdaassadsdddad@gmail.com",
-    "edad": 29,
-    "genero": "M",
+    "email": "macarena.martin.decastro@gmail.com",
+    "edad": 23,
+    "genero": "F",
     "cuota": 39.90,
-    "fecha_nacimiento": "1994-03-16", 
-    "dni": "77139446E"
+    "fecha_nacimiento": "1960-11-20", 
+    "dni": "77768417n"
 }
 
 ###
-PUT http://localhost:3000/api/clientes/45
+PUT http://localhost:3000/api/clientes/175
+Content-Type: application/json
+
+{
+    "nombre": "Macarena",
+    "apellidos": "Martin de Castro",
+    "direccion": "Avenida Andalucia Nº164 1D",
+    "email": "makapimpampum99@gmail.com",
+    "edad": 23,
+    "genero": "F",
+    "cuota": 39.90,
+    "fecha_nacimiento": "1960-11-20", 
+    "dni": "77768417n"
+}
 
 ###
-DELETE http://localhost:3000/api/clientes/45
+DELETE http://localhost:3000/api/clientes/175

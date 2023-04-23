@@ -1,4 +1,6 @@
-const { getAll, getAllProfesores, create, getById } = require('../../models/cliente.model');
+const { Router } = require('express');
+const { getAll, getAllProfesores, create, getById, getByEdad, update, deleteById } = require('../../models/cliente.model');
+const { raw } = require('mysql2');
 const router = require('express').Router();
 
 
@@ -45,22 +47,42 @@ router.get('/', async (req, res) => {
 // })
 
 
-router.post('/',(req, res) => {
-    create(req.body)
-        .then(({ insertId }) => {
-            getById(insertId)
-                .then((result) => {
-                    res.json(result)
-                })
-                .catch((err) => {
-                    res.json(err)
-                })
-            
-        })
-        .catch()
-    
+// router.post('/',(req, res) => {
+//     create(req.body)
+//         .then(({ insertId }) => {
+//             getById(insertId)
+//                 .then((result) => {
+//                     res.json(result)
+//                 })
+//                 .catch((err) => {
+//                     res.json(err)
+//                 })
+//         })
+//         .catch((err) => {
+//             res.json(err)
+//         })
+// });
 
+router.get('/mayores/:edad',async (req, res) => {
+    const { edad } = req.params
+    const result = await getByEdad(edad)
+    res.json(result)
+})
+
+router.post('/', async (req, res) => {
+    try {
+        //A partir de los datos que recibo dentro de la petición creo un nuevo registro en la tabla clientes.
+        const result = await create(req.body)
+        // A partir del ID que recibo de la creación anterior recupero el cliente correspondiente.
+        const cliente = await getById(result.insertId)
+        // Envío en formato JSON el cliente recuperado.
+        res.json(cliente)
+    } catch (err) {
+        res.json(err)
+    }
 });
+
+
 
 // router.post('/', (req,res) => {
 //     create(req.body)
@@ -73,12 +95,16 @@ router.post('/',(req, res) => {
     
 // })
 
-router.put('/:clienteId', (req, res) => {
-    res.send('Actualiza un cliente')
+router.put('/:clienteId',async (req, res) => {
+    const { clienteId } = req.params;
+    const result = await update(clienteId, req.body)
+    res.json(result)
 });
 
-router.delete('/:clienteId', (req, res) => {
-    res.send('Elimina a un cliente')
+router.delete('/:clienteId',async (req, res) => {
+    const { clienteId } = req.params
+    const result = await deleteById(clienteId)
+    res.json(result)
 });
 
 

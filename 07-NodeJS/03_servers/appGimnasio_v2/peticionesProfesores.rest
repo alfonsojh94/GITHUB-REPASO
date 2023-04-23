@@ -1,0 +1,22 @@
+###
+GET http://localhost:3000/api/profesores/
+
+###
+GET http://localhost:3000/api/profesores/101
+
+###
+POST  http://localhost:3000/api/profesores/
+Content-Type: application/json
+
+{
+    "nombre": "Profesor Alfonso11º1122",
+    "experiencia": 8,
+    "hora_entrada": "09:00:00",
+    "hora_salida": "18:00:00"
+}
+
+###
+PUT http://localhost:3000/api/profesores/15
+
+###
+DELETE  http://localhost:3000/api/profesores/15
