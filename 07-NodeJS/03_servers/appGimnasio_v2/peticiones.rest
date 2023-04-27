@@ -2,6 +2,9 @@
 GET http://localhost:3000/api/clientes
 
 ###
+GET http://localhost:3000/api/clientes/155
+
+###
 GET http://localhost:3000/api/clientes/mayores/60
 
 ###
@@ -12,7 +15,7 @@ Content-Type: application/json
     "nombre": "Macarena",
     "apellidos": "Martin de Castro",
     "direccion": "Avenida Andalucia Nº164 1D",
-    "email": "macarena.martin.decastro@gmail.com",
+    "email": "macarena.martin.decastro99@gmail.com",
     "edad": 23,
     "genero": "F",
     "cuota": 39.90,
@@ -21,12 +24,12 @@ Content-Type: application/json
 }
 
 ###
-PUT http://localhost:3000/api/clientes/175
+PUT http://localhost:3000/api/clientes/155
 Content-Type: application/json
 
 {
-    "nombre": "Macarena",
-    "apellidos": "Martin de Castro",
+    "nombre": "Macanena",
+    "apellidos": "Martin ade Castro",
     "direccion": "Avenida Andalucia Nº164 1D",
     "email": "makapimpampum99@gmail.com",
     "edad": 23,

@@ -10,6 +10,12 @@ router.get('/', async (req, res) => {
     
 });
 
+router.get('/:clienteId',async (req, res) => {
+    const { clienteId } = req.params
+    const result = await getById(clienteId)
+    res.json(result)
+})
+
 
 // GET CLIENTE Definiendo PROMESA como ------> .Then() .catch()
 // router.get('/', (req, res) => {
@@ -78,7 +84,7 @@ router.post('/', async (req, res) => {
         // Envío en formato JSON el cliente recuperado.
         res.json(cliente)
     } catch (err) {
-        res.json(err)
+        res.json(err.message)
     }
 });
 
