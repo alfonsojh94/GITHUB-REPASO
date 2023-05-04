@@ -9,7 +9,7 @@ POST  http://localhost:3000/api/profesores/
 Content-Type: application/json
 
 {
-    "nombre": "Profesor Alfonso11º1122",
+    "nombre": "Profesor Actualizado",
     "experiencia": 8,
     "hora_entrada": "09:00:00",
     "hora_salida": "18:00:00"

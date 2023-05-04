@@ -1,5 +1,5 @@
-const { Router } = require('express');
-const { getAll, getAllProfesores, create, getById, getByEdad, update, deleteById } = require('../../models/cliente.model');
+
+const { getAll, create, getById, getByEdad, update, deleteById } = require('../../models/cliente.model');
 const { raw } = require('mysql2');
 const router = require('express').Router();
 

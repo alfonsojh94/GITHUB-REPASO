@@ -17,7 +17,7 @@ const executeQuery = (query, params = []) => {
 const executeQueryOne = (query, params = []) => {
     return new Promise((resolve, reject) => {
         db.query(query, params, (err, result) => {
-            if (err) reject(err);
+            if (err) return reject(err);
             if (result.length === 0) resolve(null);
             resolve(result[0]);
         });

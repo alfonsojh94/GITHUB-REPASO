@@ -2,7 +2,7 @@
 GET http://localhost:3000/api/clientes
 
 ###
-GET http://localhost:3000/api/clientes/155
+GET http://localhost:3000/api/clientes/170
 
 ###
 GET http://localhost:3000/api/clientes/mayores/60

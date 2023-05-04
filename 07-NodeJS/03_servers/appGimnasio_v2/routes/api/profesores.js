@@ -25,6 +25,17 @@ router.get('/:profesorId', async (req, res) => {
     }
 });
 
+router.get('/clientes', (req, res) => {
+    // Necesitamos obtener todos los profesores
+    const profesores = this.getAll();
+
+    // Para cada profesor recupero su cliente
+    for (let profesor of profesores) {
+        console.log(profesor);
+        const clientes = getByProfesor(profesor.id);
+    }
+});
+
 // POST Crear un profesor y devolverlo.
 router.post('/',async (req, res) => {
     try {
